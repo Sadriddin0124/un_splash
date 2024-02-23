@@ -163,14 +163,14 @@ const Navbar = ({ searchValue, setSearchValue }) => {
               );
             })}
           </div> */}
-          <Link
+          {/* <Link
             to="/search"
             className={`hover:text-black text-[#767676] absolute z-[24] left-0 w-[100%] bg-white p-[10px] text-center top-[345px] border-x-[1px] border-b-[1px] rounded-md rounded-t-none ${
               activeREsult ? "block" : "hidden"
             }`}
           >
             show more
-          </Link>
+          </Link> */}
         </form>
         <ul className="navbar__list">
           <li className="none__link">
