@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { MdOutlineMenu } from "react-icons/md";
+import { MdClose, MdOutlineMenu } from "react-icons/md";
 import "./Navbar.scss";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineControlCamera } from "react-icons/md";
@@ -124,8 +124,11 @@ const Navbar = ({ searchValue, setSearchValue }) => {
     getPicturesSearch(e.target[1].value);
     setSearchValue(e.target[1].value);
     navigate("/search");
-    setActiveResult(false);
   };
+  const cleanSearch =()=> {
+    setActiveResult(false)
+    setSearchValue("")
+  }
   return (
     <nav className="navbar fixed bg-white">
       <div className="navbar__top">
@@ -149,6 +152,7 @@ const Navbar = ({ searchValue, setSearchValue }) => {
             type="text"
             placeholder="Search high-resolution images"
           />
+          <MdClose onClick={cleanSearch} size={22} className={` ${activeREsult ? "clean__btn" : "hidden"}`}/>
           <MdOutlineControlCamera className="control__icon cursor-pointer" />
           {/* <div className={` ${activeREsult ? "search__results" : "hidden"}`}>
             {search?.map((item, index) => {

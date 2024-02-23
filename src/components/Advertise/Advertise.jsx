@@ -1,11 +1,10 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Advertise.scss"
 import ReactPlayer from "react-player";
 const Advertise = () => {
   let url = window.location.href.split("/").pop()
   return (
-   <div className={url !== "" ? "advertise" : "hidden"}>
+   <div className={url === "" || url === "search" ? "hidden" : "advertise"}>
     <ReactPlayer
         url="/advert.mp4"
         width="100%"

@@ -143,6 +143,13 @@
   background: #76767672;
 }
 
+.clean__btn {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  cursor: pointer;
+}
+
 //navbar bottom
 .navbar__bottom {
   width: 100%;
@@ -204,6 +211,9 @@
 @media (max-width: 768px){
   .navbar__bell,.navbar__btn,.control__icon{
     display: none;
+  }
+  .clean__btn{
+    right: 15px;
   }
   .navbar{
     padding-bottom: 0 !important;
