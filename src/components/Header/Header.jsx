@@ -14,7 +14,7 @@ const Header = ({background, title}) => {
   return (
     <div className="header">
       <header className="header__child">
-        <img src={background[index]?.urls?.raw} alt="header" className="header__bg" />
+        <img src={background[index]?.urls?.raw} alt="header" loading="lazy" className="header__bg" />
         <div className="header__item">
           <h1 className="header__title">{title}</h1>
           <p className="header__subtitle">{background[index]?.description || background[index]?.alt_description}</p>

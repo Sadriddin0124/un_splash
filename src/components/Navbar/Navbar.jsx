@@ -13,24 +13,51 @@ import User from "../../assets/user.avif";
 const Navbar = ({ searchValue, setSearchValue }) => {
   const { search, getPicturesSearch } = useEditorialStore();
   const navigate = useNavigate();
+  const screenWidth = window.innerWidth;
   const url = window.location.href.split("/").pop();
   const [scrollRight, setScrollRight] = useState(false);
+  const [bigScrollRight, setBigScrollRight] = useState(false);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [bigScrollLeft, setBigScrollLeft] = useState(0);
   const navRef = useRef();
-  const scrollRef = useRef()
+  const scrollRef = useRef();
   const scrollNav = () => {
     const element = navRef.current;
-    setScrollLeft(element.scrollLeft)
+    setScrollLeft(element.scrollLeft);
     if (element) {
-      if(Math.ceil(element.scrollLeft + element.clientWidth) !== element.scrollWidth){
-        console.log("alik");
-        setScrollRight(false)
+      if (
+        Math.ceil(element.scrollLeft + element.clientWidth) !==
+        element.scrollWidth
+      ) {
+        setScrollRight(false);
       }
       if (
         Math.ceil(element.scrollLeft + element.clientWidth) ===
         element.scrollWidth
       ) {
-        setScrollRight(true)
+        setScrollRight(true);
+      }
+    }
+  };
+  useEffect(() => {
+    getPicturesSearch();
+  }, []);
+  const bigScrollNav = () => {
+    const element = scrollRef.current;
+    setBigScrollLeft(element.scrollLeft);
+    if (element) {
+      if (
+        Math.ceil(element.scrollLeft + element.clientWidth) !==
+        element.scrollWidth
+      ) {
+        setBigScrollRight(false);
+      }
+      if (
+        Math.floor(element.scrollLeft + element.clientWidth) ===
+        element.scrollWidth
+      ) {
+        setBigScrollRight(true);
+        console.log("jh");
       }
     }
   };
@@ -106,8 +133,9 @@ const Navbar = ({ searchValue, setSearchValue }) => {
   ]);
   const handleNav = (scrollAmount) => {
     navRef.current.scrollLeft += scrollAmount;
-    const scrollLeft = navRef.current.scrollLeft;
-    console.log("Scroll Left:", scrollLeft);
+  };
+  const bigScroll = (scrollAmount) => {
+    scrollRef.current.scrollLeft += scrollAmount;
   };
   const [activeREsult, setActiveResult] = useState(false);
   const searchImage = (e) => {
@@ -125,15 +153,14 @@ const Navbar = ({ searchValue, setSearchValue }) => {
     setSearchValue(e.target[1].value);
     navigate("/search");
   };
-  const cleanSearch =()=> {
-    setActiveResult(false)
-    setSearchValue("")
-  }
+  const cleanSearch = () => {
+    setActiveResult(false);
+    setSearchValue("");
+  };
   return (
     <nav className="navbar fixed bg-white">
       <div className="navbar__top">
         <div className="w-[32px] h-[32px] whitespace-nowrap">
-          {/* <span className=" opacity-0">efefr</span> */}
           <Link to="/">
             <img
               src={Logo}
@@ -150,9 +177,19 @@ const Navbar = ({ searchValue, setSearchValue }) => {
             onChange={searchImage}
             value={searchValue}
             type="text"
-            placeholder="Search high-resolution images"
+            placeholder={
+              screenWidth > 768
+                ? "Search high-resolution images"
+                : "Search images"
+            }
           />
-          <MdClose onClick={cleanSearch} size={22} className={` ${activeREsult ? "clean__btn" : "hidden"}`}/>
+          <MdClose
+            onClick={cleanSearch}
+            size={22}
+            className={` ${
+              activeREsult ? "clean__btn text-[#767676]" : "hidden"
+            }`}
+          />
           <MdOutlineControlCamera className="control__icon cursor-pointer" />
           {/* <div className={` ${activeREsult ? "search__results" : "hidden"}`}>
             {search?.map((item, index) => {
@@ -207,8 +244,15 @@ const Navbar = ({ searchValue, setSearchValue }) => {
           </li>
         </ul>
       </div>
-      <div className={`${url === "search" ? "hidden" : "flex"} navbar__bottom`} ref={scrollRef}>
-        <ul className="flex ml-[20px] gap-[20px] navbar__bottom-left">
+      <div
+        className={`${url === "search" ? "hidden" : "flex"} navbar__bottom`}
+        ref={scrollRef}
+        onScroll={bigScrollNav}
+      >
+        <div className={bigScrollLeft < 10 ? "hidden" : "scroll__left"} onClick={()=>bigScroll(-200)}>
+          <IoIosArrowBack size={24} />
+        </div>
+        <ul className="flex gap-[20px] navbar__bottom-left">
           <li>
             <Link
               to="/"
@@ -245,12 +289,12 @@ const Navbar = ({ searchValue, setSearchValue }) => {
           </li>
           <li className="navbar__line relative z-[4]"></li>
         </ul>
-        <ul
-          className="bottom__list"
-          ref={navRef}
-          onScroll={scrollNav}
-        >
-          <div className={`${scrollLeft < 10 ? "hidden" : ""} absolute bottom-[20px] left-[260px] bg-white left_arrow px-[20px] py-[5px]`}>
+        <ul className="bottom__list" ref={navRef} onScroll={scrollNav}>
+          <div
+            className={`${
+              scrollLeft < 10 ? "hidden" : ""
+            } absolute bottom-[20px] left-[260px] bg-white left_arrow px-[20px] py-[5px]`}
+          >
             <IoIosArrowBack
               className="cursor-pointer text-[20px] text-[#767676] "
               onClick={() => handleNav(-300)}
@@ -279,13 +323,20 @@ const Navbar = ({ searchValue, setSearchValue }) => {
               </li>
             );
           })}
-          <div className={`${scrollRight ? "hidden" : ""} absolute bottom-[20px] right-[2px] bg-white left_arrow px-[20px] py-[5px]`}>
+          <div
+            className={`${
+              scrollRight ? "hidden" : ""
+            } absolute bottom-[20px] right-[2px] bg-white left_arrow px-[20px] py-[5px]`}
+          >
             <IoIosArrowForward
               className="cursor-pointer text-[20px] text-[#767676]"
               onClick={() => handleNav(300)}
             />
           </div>
         </ul>
+        <div className={bigScrollRight ? "hidden" : "scroll__right"} onClick={()=>bigScroll(200)}>
+          <IoIosArrowForward size={24} />
+        </div>
       </div>
     </nav>
   );
