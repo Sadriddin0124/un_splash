@@ -150,7 +150,7 @@ const Navbar = ({ searchValue, setSearchValue }) => {
             placeholder="Search high-resolution images"
           />
           <MdOutlineControlCamera className="control__icon cursor-pointer" />
-          <div className={` ${activeREsult ? "search__results" : "hidden"}`}>
+          {/* <div className={` ${activeREsult ? "search__results" : "hidden"}`}>
             {search?.map((item, index) => {
               return (
                 <div key={index} className="w-[48%] h-[100%] flex">
@@ -162,7 +162,7 @@ const Navbar = ({ searchValue, setSearchValue }) => {
                 </div>
               );
             })}
-          </div>
+          </div> */}
           <Link
             to="/search"
             className={`hover:text-black text-[#767676] absolute z-[24] left-0 w-[100%] bg-white p-[10px] text-center top-[345px] border-x-[1px] border-b-[1px] rounded-md rounded-t-none ${
