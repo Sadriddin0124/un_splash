@@ -10,7 +10,7 @@ const Architecture = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Architecture & Interiors"/>
+      <Header background={images} title="Architecture & Interiors" desc="Celebrating the artistry of spaces, this category recognizes exceptional photography that captures the essence of architectural marvels and interior designs. From sweeping cityscapes to intimate details, entrants showcase the beauty and functionality of built environments."/>
       <Pictures photos={images}/>
     </div>
   )

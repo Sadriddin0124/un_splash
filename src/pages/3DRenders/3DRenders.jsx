@@ -10,7 +10,7 @@ const Renders3D = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="3D Renders"/>
+      <Header background={images} title="3D Renders" desc="Blending technology and artistry, the 3D Renders category showcases digitally rendered creations that blur the lines between reality and imagination. From architectural visualizations to fantastical worlds, this category exhibits the limitless possibilities of digital craftsmanship."/>
       <Pictures photos={images}/>
     </div>
   )

@@ -25,6 +25,7 @@ import Sports from './pages/Sports/Sports'
 import CurrentEvents from "./pages/CurrentEvents/CurrentEvents"
 const App = () => {
   const [searchValue, setSearchValue] = useState("")
+
   return (
     <div>
       <div className='min-h-[100px]'>

@@ -10,7 +10,7 @@ const FoodDrink = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Food & Drink"/>
+      <Header background={images} title="Food & Drink" desc="From simple home-cooked dinners at home, to tasting new dishes while traveling — food connects us all. This category examines the world of food photography, with shots of everything from summer picnics in the park to decadent deserts."/>
       <Pictures photos={images}/>
     </div>
   )

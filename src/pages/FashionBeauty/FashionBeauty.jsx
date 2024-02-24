@@ -10,7 +10,7 @@ const FashionBeauty = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Fashion & Beauty"/>
+      <Header background={images} title="Fashion & Beauty" desc="In this category, photography becomes a canvas for artistic expressions of fashion and beauty. Through expertly composed images, photographers capture trends, styles, and personal statements, transforming models into walking works of art."/>
       <Pictures photos={images}/>
     </div>
   )

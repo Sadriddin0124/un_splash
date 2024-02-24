@@ -10,7 +10,7 @@ const Sprituality = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Sprituality"/>
+      <Header background={images} title="Sprituality" desc="Photography has the ability to examine life’s big questions, by exploring themes of love, loss, healing and human connection."/>
       <Pictures photos={images}/>
     </div>
   )

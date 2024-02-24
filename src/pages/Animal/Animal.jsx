@@ -10,7 +10,7 @@ const Animal = () => {
   }, []);
   return (
     <div className="w-[100%]">
-      <Header background={images} title="Animal" />
+      <Header background={images} title="Animal" desc="This category pays homage to the fascinating world of animals. Photographers capture the diversity, behavior, and beauty of creatures from across the globe, bringing the animal kingdom closer to the viewer's heart and lens."/>
       <Pictures photos={images} />
     </div>
   );

@@ -10,7 +10,7 @@ const HealthWellness = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Health & Wellness"/>
+      <Header background={images} title="Health & Wellness" desc="Celebrate a healthy mind, body and soul with photographs that showcase everything from new medical discoveries and alternative medicines, to healthy eating and meditation."/>
       <Pictures photos={images}/>
     </div>
   )

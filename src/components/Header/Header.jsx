@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Header.scss"
-const Header = ({background, title}) => {
+import PagesStore from "../../store/PagesStore/PagesStore";
+const Header = ({background, title, desc}) => {
   const [index, setIndex] = useState(0)
+  const {getContributors} = PagesStore()
   useEffect(() => {
     setInterval(() => {
       if(index === 28){
@@ -9,7 +11,8 @@ const Header = ({background, title}) => {
       }else{
         setIndex(prev=> prev + 1)
       }
-    }, 3600 * 1000);
+    }, 60 * 1000);
+    getContributors()
   }, []);
   return (
     <div className="header">
@@ -17,7 +20,7 @@ const Header = ({background, title}) => {
         <img src={background[index]?.urls?.raw} alt="header" loading="lazy" className="header__bg" />
         <div className="header__item">
           <h1 className="header__title">{title}</h1>
-          <p className="header__subtitle">{background[index]?.description || background[index]?.alt_description}</p>
+          <p className="header__subtitle">{desc}</p>
           <button className="header__btn">Submit to <span className="font-[500]">{title}</span></button>
         </div>
         <p className="header__author">Photo <span className="text-[silver]"> by </span>{background[index]?.user.name}</p>

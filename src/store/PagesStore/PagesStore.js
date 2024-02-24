@@ -15,6 +15,16 @@ const PagesStore = create((set)=> ({
           console.error(err);
         }
       },
+    getContributors: async (id) => {
+        try {
+          const res = await axios.get(
+            `${BASE_URL}/topics/bo8jQKTaE0Y/photos?_page=1&per_page=30&${client_id}`
+            );
+            console.log(res);
+        } catch (err) {
+          console.error(err);
+        }
+      },
 }))
 
 export default PagesStore

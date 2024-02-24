@@ -206,6 +206,7 @@
   width: 30px;
   padding-top: 10px;
   z-index: 2;
+  display: none;
 }
 
 .scroll__left {
@@ -233,6 +234,10 @@
 }
 
 @media (max-width: 768px){
+  .scroll__left,.scroll__right {
+    display: block;
+    cursor: pointer;
+  }
   .navbar__bell,.navbar__btn,.control__icon{
     display: none;
   }

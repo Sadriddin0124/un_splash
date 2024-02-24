@@ -10,7 +10,7 @@ const Textures = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Textures & Patterns"/>
+      <Header background={images} title="Textures & Patterns" desc="Whether you’re looking for stunning macro-photography or shots of complex architectural shapes — you’ve come to the right place."/>
       <Pictures photos={images}/>
     </div>
   )

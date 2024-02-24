@@ -10,7 +10,7 @@ const BusinessWork = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Business & Work"/>
+      <Header background={images} title="Business & Work" desc="Reflecting the realities of the modern workplace in their many forms — from images of remote working and start-ups to shots of engineers and artists at work."/>
       <Pictures photos={images}/>
     </div>
   )

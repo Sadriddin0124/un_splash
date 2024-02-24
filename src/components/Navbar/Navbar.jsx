@@ -57,7 +57,6 @@ const Navbar = ({ searchValue, setSearchValue }) => {
         element.scrollWidth
       ) {
         setBigScrollRight(true);
-        console.log("jh");
       }
     }
   };

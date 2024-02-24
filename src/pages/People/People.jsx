@@ -10,7 +10,7 @@ const People = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="People"/>
+      <Header background={images} title="People" desc="People are the focal point of this category, where photographers skillfully depict the human experience. From candid moments to formal portraits, this category showcases the myriad emotions, cultures, and stories that define us."/>
       <Pictures photos={images}/>
     </div>
   )

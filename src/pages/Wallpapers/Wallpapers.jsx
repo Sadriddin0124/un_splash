@@ -10,7 +10,7 @@ const Wallpapers = () => {
     },[])
   return (
     <div className='w-[100%]'>
-      <Header background={images} title="Wallpapers"/>
+      <Header background={images} title="Wallpapers" desc="From epic drone shots to inspiring moments in nature — submit your best desktop and mobile backgrounds."/>
       <Pictures photos={images}/>
     </div>
   )
