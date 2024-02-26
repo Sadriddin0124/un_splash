@@ -310,7 +310,6 @@ const Navbar = ({ searchValue, setSearchValue }) => {
                   Featured
                 </span>
                 <Link
-                onClick={window.location.reload}
                   to={item.path}
                   className={`bottom__link hover:text-black pb-[10px] border-b-[3px] ${
                     url === item.search
