@@ -301,7 +301,7 @@ const Navbar = ({ searchValue, setSearchValue }) => {
           </div>
           {navbarLink?.map((item, index) => {
             return (
-              <li key={index} className="bottom__list-item relative">
+              <li key={index} className="bottom__list-item relative" >
                 <span
                   className={`absolute top-[-13px] text-[10px] text-[#767676] ${
                     index === 0 ? "block" : "hidden"
@@ -310,6 +310,7 @@ const Navbar = ({ searchValue, setSearchValue }) => {
                   Featured
                 </span>
                 <Link
+                onClick={window.location.reload}
                   to={item.path}
                   className={`bottom__link hover:text-black pb-[10px] border-b-[3px] ${
                     url === item.search

@@ -5,21 +5,35 @@ const BASE_URL = "https://api.unsplash.com"
 
 const PagesStore = create((set)=> ({
     images: [],
+    topics: [],
+    topicPhoto: [],
     getImages: async (payload) => {
         try {
           const res = await axios.get(
             `${BASE_URL}/search/photos?query=${payload}&_page=1&per_page=30&${client_id}`
             );
             set({ images: [...res?.data?.results] });
-        } catch (err) {
+          } catch (err) {
+            console.error(err);
+          }
+        },
+        getTopics: async () => {
+          try {
+            const res = await axios.get(
+              `${BASE_URL}/topics?_page=1&per_page=30&${client_id}`
+              );
+              set({ topics: [...res?.data] });
+              console.log(res);
+            } catch (err) {
           console.error(err);
         }
       },
-    getContributors: async (id) => {
+    getTopicPhoto: async (id) => {
         try {
           const res = await axios.get(
-            `${BASE_URL}/topics/bo8jQKTaE0Y/photos?_page=1&per_page=30&${client_id}`
+            `${BASE_URL}/topics/${id}/photos?_page=1&per_page=30&${client_id}`
             );
+            set({ topicPhoto: [...res?.data] });
             console.log(res);
         } catch (err) {
           console.error(err);

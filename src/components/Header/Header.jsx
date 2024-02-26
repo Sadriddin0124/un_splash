@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Header.scss"
-import PagesStore from "../../store/PagesStore/PagesStore";
 const Header = ({background, title, desc}) => {
   const [index, setIndex] = useState(0)
-  const {getContributors} = PagesStore()
   useEffect(() => {
     setInterval(() => {
       if(index === 28){
@@ -12,7 +10,6 @@ const Header = ({background, title, desc}) => {
         setIndex(prev=> prev + 1)
       }
     }, 60 * 1000);
-    getContributors()
   }, []);
   return (
     <div className="header">

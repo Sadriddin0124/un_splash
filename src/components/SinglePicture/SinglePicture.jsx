@@ -45,7 +45,7 @@ const SinglePicture = ({index, photos, singlePictureStatus, setSinglePictureStat
       </div>
       <div className="slider__btns">
         <button className="prev" disabled={index === 0 ? true : false} onClick={()=>setPropIndex(prev=> prev - 1)}><GrPrevious/></button>
-        <button className="next" onClick={()=>setPropIndex(prev=> prev + 1)}><GrNext/></button>
+        <button className="next" disabled={photos.length - index === 1 ? true : false} onClick={()=>setPropIndex(prev=> prev + 1)}><GrNext/></button>
       </div>
     </div>
   );
